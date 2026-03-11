@@ -9,71 +9,41 @@ const PROJECTS = [
     id: 1,
     title: "Sales Performance Dashboard",
     problem:
-      "Retail company needed real-time visibility into sales KPIs across 50+ stores.",
-    tools: ["Power BI", "SQL", "Excel"],
+      "Built interactive BI dashboards to analyze sales trends, customer segmentation, and revenue KPIs.",
+    tools: ["Power BI", "SQL", "DAX"],
     insight:
-      "Identified top 5 revenue-generating regions; reduced reporting time by 40%.",
+      "Wrote optimized SQL queries for data extraction; applied DAX for KPI tracking and automated reporting workflows to support data-driven decision-making.",
     tags: ["Power BI", "SQL"],
     color: "from-blue-500/10 to-cyan-500/10",
+    github: "https://github.com/akhiii88",
   },
   {
     id: 2,
-    title: "Customer Churn Analysis",
+    title: "Stock Price Analysis",
     problem:
-      "Telecom firm losing 15% annual customers with no predictive model in place.",
-    tools: ["Python", "Pandas", "Scikit-learn", "Matplotlib"],
+      "Conducted exploratory and statistical analysis on financial time-series datasets to understand market behavior.",
+    tools: ["Python", "Matplotlib", "Pandas"],
     insight:
-      "Built ML model with 87% accuracy; identified top churn predictors.",
+      "Applied regression models and moving averages to identify volatility patterns and market trends; designed visual reports using Matplotlib.",
     tags: ["Python"],
     color: "from-violet-500/10 to-purple-500/10",
+    github: "https://github.com/akhiii88",
   },
   {
     id: 3,
-    title: "E-commerce Revenue Forecasting",
+    title: "E-Commerce Customer Feedback Analysis",
     problem:
-      "No reliable method to forecast seasonal revenue spikes for inventory planning.",
-    tools: ["Python", "Prophet", "SQL"],
+      "Examined customer feedback from an online marketplace to understand product satisfaction and buying experience.",
+    tools: ["SQL", "Python", "Power BI"],
     insight:
-      "Forecast model with 92% accuracy; optimized inventory planning by 25%.",
+      "Explored rating distributions, word frequencies in reviews, and category-wise trends; suggested data-driven improvements for product listings and customer engagement.",
     tags: ["Python", "SQL"],
     color: "from-emerald-500/10 to-teal-500/10",
-  },
-  {
-    id: 4,
-    title: "HR Analytics Dashboard",
-    problem:
-      "HR team lacked visibility into attrition trends and hiring pipeline metrics.",
-    tools: ["Tableau", "Excel"],
-    insight:
-      "Reduced attrition by 18% by identifying at-risk departments early.",
-    tags: ["Tableau"],
-    color: "from-orange-500/10 to-amber-500/10",
-  },
-  {
-    id: 5,
-    title: "COVID-19 Data Analysis",
-    problem:
-      "Analyze global pandemic spread patterns and vaccination effectiveness across 50+ countries.",
-    tools: ["Python", "Pandas", "Plotly"],
-    insight:
-      "Correlated vaccination rates with 35% reduction in hospitalization rates.",
-    tags: ["Python"],
-    color: "from-rose-500/10 to-pink-500/10",
-  },
-  {
-    id: 6,
-    title: "Supply Chain Optimization",
-    problem:
-      "Logistics company had inefficient routing causing significant delivery delays.",
-    tools: ["SQL", "Excel", "Power BI"],
-    insight:
-      "Reduced delivery delays by 22% through data-driven route optimization.",
-    tags: ["SQL", "Power BI"],
-    color: "from-sky-500/10 to-blue-500/10",
+    github: "https://github.com/akhiii88",
   },
 ];
 
-const FILTERS = ["All", "Power BI", "Python", "SQL", "Tableau"];
+const FILTERS = ["All", "Power BI", "Python", "SQL"];
 
 export default function Projects() {
   const ref = useRef(null);
@@ -101,7 +71,7 @@ export default function Projects() {
             Featured Projects
           </h2>
           <p className="text-muted-foreground mt-3 max-w-lg mx-auto">
-            Real-world data challenges solved with analytics, ML, and
+            Real-world data challenges solved with analytics, SQL, and
             visualization.
           </p>
         </motion.div>
@@ -168,14 +138,14 @@ export default function Projects() {
 
                   <p className="text-sm text-muted-foreground mb-4 leading-relaxed line-clamp-3">
                     <span className="font-medium text-foreground">
-                      Problem:{" "}
+                      Overview:{" "}
                     </span>
                     {project.problem}
                   </p>
 
                   <div className="p-3 bg-primary/5 border border-primary/15 rounded-lg mb-4">
                     <p className="text-xs font-semibold text-primary mb-1">
-                      Key Insight
+                      Key Work
                     </p>
                     <p className="text-xs text-muted-foreground leading-relaxed">
                       {project.insight}
@@ -187,6 +157,8 @@ export default function Projects() {
                       variant="outline"
                       size="sm"
                       className="gap-1.5 text-xs"
+                      onClick={() => window.open(project.github, "_blank")}
+                      data-ocid={`projects.item.${project.id}.button`}
                     >
                       <Github className="w-3.5 h-3.5" />
                       GitHub

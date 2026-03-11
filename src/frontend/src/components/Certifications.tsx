@@ -7,61 +7,28 @@ const CERTS = [
     id: 1,
     name: "Google Data Analytics Professional Certificate",
     issuer: "Google / Coursera",
-    year: "2023",
     category: "analytics",
     color: "from-blue-500/20 to-cyan-500/20",
-    accent: "text-blue-600 dark:text-blue-400",
+    accent: "text-blue-400",
     bg: "bg-blue-500/10",
   },
   {
     id: 2,
-    name: "Microsoft Power BI Data Analyst (PL-300)",
-    issuer: "Microsoft",
-    year: "2023",
-    category: "visualization",
-    color: "from-yellow-500/20 to-orange-500/20",
-    accent: "text-orange-600 dark:text-orange-400",
-    bg: "bg-orange-500/10",
-  },
-  {
-    id: 3,
-    name: "Tableau Desktop Specialist",
-    issuer: "Tableau",
-    year: "2022",
-    category: "visualization",
-    color: "from-indigo-500/20 to-violet-500/20",
-    accent: "text-indigo-600 dark:text-indigo-400",
+    name: "IBM Data Analyst Professional Certificate",
+    issuer: "IBM / Coursera",
+    category: "analytics",
+    color: "from-indigo-500/20 to-blue-500/20",
+    accent: "text-indigo-400",
     bg: "bg-indigo-500/10",
   },
   {
-    id: 4,
-    name: "Python for Data Science and AI",
-    issuer: "IBM / Coursera",
-    year: "2022",
-    category: "programming",
+    id: 3,
+    name: "Deloitte Data Analytics Job Simulation",
+    issuer: "Deloitte / Forage",
+    category: "simulation",
     color: "from-green-500/20 to-emerald-500/20",
-    accent: "text-emerald-600 dark:text-emerald-400",
+    accent: "text-emerald-400",
     bg: "bg-emerald-500/10",
-  },
-  {
-    id: 5,
-    name: "SQL for Data Science",
-    issuer: "UC Davis / Coursera",
-    year: "2022",
-    category: "databases",
-    color: "from-teal-500/20 to-cyan-500/20",
-    accent: "text-teal-600 dark:text-teal-400",
-    bg: "bg-teal-500/10",
-  },
-  {
-    id: 6,
-    name: "AWS Cloud Practitioner",
-    issuer: "Amazon Web Services",
-    year: "2023",
-    category: "cloud",
-    color: "from-amber-500/20 to-yellow-500/20",
-    accent: "text-amber-600 dark:text-amber-400",
-    bg: "bg-amber-500/10",
   },
 ];
 
@@ -89,17 +56,16 @@ export default function Certifications() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {CERTS.map((cert, i) => (
             <motion.div
               key={cert.id}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
               data-ocid={`certs.item.${cert.id}`}
               className="group relative bg-background rounded-2xl border border-border p-6 hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden"
             >
-              {/* Background gradient */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${cert.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl`}
               />
@@ -114,11 +80,8 @@ export default function Certifications() {
                 <h3 className="font-display font-bold text-base mb-1 leading-snug">
                   {cert.name}
                 </h3>
-                <p className={`text-sm font-medium ${cert.accent} mb-1`}>
+                <p className={`text-sm font-medium ${cert.accent} mb-4`}>
                   {cert.issuer}
-                </p>
-                <p className="text-xs text-muted-foreground mb-4">
-                  Issued {cert.year}
                 </p>
 
                 <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Loader2, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Loader2, Mail, Phone, Send } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { toast } from "sonner";
@@ -12,23 +12,30 @@ const CONTACT_LINKS = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    value: "linkedin.com/in/alexjohnson",
-    href: "#",
-    color: "bg-blue-600/10 text-blue-600 dark:text-blue-400",
+    value: "linkedin.com/in/akhilesh-pratap-gautam-633027250",
+    href: "https://www.linkedin.com/in/akhilesh-pratap-gautam-633027250/",
+    color: "bg-blue-600/10 text-blue-500",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "alex.johnson@email.com",
-    href: "mailto:alex.johnson@email.com",
+    value: "akhileshp9859@gmail.com",
+    href: "mailto:akhileshp9859@gmail.com",
     color: "bg-primary/10 text-primary",
   },
   {
     icon: Github,
     label: "GitHub",
-    value: "github.com/alexjohnson",
-    href: "#",
+    value: "github.com/akhiii88",
+    href: "https://github.com/akhiii88",
     color: "bg-foreground/10 text-foreground",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 9696868732",
+    href: "tel:+919696868732",
+    color: "bg-green-600/10 text-green-500",
   },
 ];
 
@@ -92,6 +99,8 @@ export default function Contact() {
                 <a
                   key={link.label}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 bg-card border border-border rounded-xl hover:shadow-card hover:-translate-y-0.5 transition-all duration-200"
                 >
                   <div
